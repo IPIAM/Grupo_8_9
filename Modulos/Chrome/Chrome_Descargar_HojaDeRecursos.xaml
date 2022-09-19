@@ -1,0 +1,203 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Chrome_Descargar_HojaDeRecursos" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_RutaArchivoDescargado" Type="OutArgument(x:String)" />
+    <x:Property Name="in_DelayLow" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_RutaFolderDescargas" Type="InArgument(x:String)" />
+    <x:Property Name="in_URLFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_NombreArchivo" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1159,1106</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Chrome_Descargar_HojaDeRecursos_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Esta secuencia abre la pagina para descargar la hoja de recursos(.xlsx) en Chrome y moverla a la carpeta temporal de UIPath. Despues lee la hoja de insumos y la almacena.&#xA;&#xA;Precondiciones: &#xA;- Contar con el navegador Google Chrome&#xA;- Contar con una cuenta de Google abierta; con permisos para descargar el archivo.&#xA;- Tener configurado Google Chrome para descargar directo a una carpeta (Download/Descargas).&#xA;- Configurar el archivo config agregando el path del folder Download/Descargas &#xA;&#xA;Post:&#xA;El archivo descargado deberia estar en la carpeta input. Y la ruta en la variable de salida&#xA;&#xA;Arg:&#xA;in_URLFolder&#xA;in_NombreArchivo&#xA;in_HojaALeer&#xA;out_RutaArchivoDescargado&#xA;" DisplayName="Chrome_Descargar_HojaDeRecursos.xaml" sap:VirtualizedContainerService.HintSize="242,1041" sap2010:WorkflowViewState.IdRef="Sequence_11">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Iniciando Web_GDrive_Descargar_hoja_de_recursos" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Iniciando Web_GDrive_Descargar_hoja_de_recursos&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Abrir Chrome: Generación de Correos - Google Drive" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="f6006294-c02d-41f2-82b4-add66e3d6a9c" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Descarga de archivo" sap:VirtualizedContainerService.HintSize="242,358" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="si:FileInfo" Name="archivoDescargado" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Cliclk derecho en el archivo a descargar" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Right" ScopeIdentifier="f6006294-c02d-41f2-82b4-add66e3d6a9c" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://drive.google.com/drive/u/0/folders/1shJ6qV-pjCpCZVN3UyIhxG2wc43VTxtk" DesignTimeRectangle="1055, 494, 170, 15" ElementType="Text" FriendlyName="'Hoja de recursos'" FullSelectorArgument="&lt;webctrl aaname='Hoja de recursos' parentid=':4' tag='DIV' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl aaname='Hoja de recursos' parentid=':4' tag='DIV' type='' class='Q5txwe' check:innerText='&quot;+in_NombreArchivo+&quot;' /&gt;&quot;]" Guid="ab8a653a-afda-4329-a5fa-b72badf29d6f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK4AAAATCAYAAAAJWDZFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQmSURBVGhD7Zj/ZxthHMf3h/WHaKjml4URRhmdkihnRmNsxqpSK5NyUqIjhFLCEcJYLVab1RHtLxEmmbmjEsZRjhDCe5/n7rncc7kvKktHeF4c93z/PPe8n8/zee4RJJIVof/L4G+AFK5kZZDClawkUriSleSBhGujr6k4/zbi6QUZNVFMpVHp8LREwokUrqUpWEup6PK0ywit3TTWdpuweE48Jlo7GWwe6ZjwnIWQwpXE8EDCXRJSuJIY/km4k59NlJ9lqG4am0/2UNe9El73+MZNTi1cnyh4vEF5qQwKB00Ytls0z/BzCYUM1dvIYv+ohOeicP/oqCtZrFPeelYRxhPhY79VcfqUbOM2BGx9VkLrp2+ApVdRzM6XhefbPWb28+/SUek9j4q6h82UghaLim7bKG+79q1ltlHWBv6JE7B9riypnSSSxYXLvCEJceuwjeGdie5HhT58DvWeUJeLxqjlSIivcWHasAcNt11t4JQF6FWxRYtXOG7DMAe4OKR2lHaEO+2hnqNFV87QH43Qr7PxuGAC8LHJljcnTbQ6Jk2ojX3B1ivWb5bmN6bqv89QoM1U/HiD4YiPuVHC9fg+wiV7dt5B076jT/1q22nkDtgYtrMBc6ms+z3GNzgVbDc+lWieGex/Zj0ntJPEkiBctkgRD19Io75F6RKu2OI7kLCytDgqE2tQuBObBGt7PiRYJuL2+QHXU54hhgoklPXUFrTfbhGmOipUVmx6svLg/VN87eHOR7D1toEXJJxTMqFfzZJQSYzemJYOTa3iyryPcPNo3TpFxADnjjhr6Jo01+kENgmRTXvytUR1Bdvp8nr5ivpSWN/x7STxJAiXFpp9wNkzgLbjL6SziMKiBgU5J052TL7M0ZFKed4TIdxQn4Jw4zZTUZt3ueGN4Qou/LB+w/PwuI9w5zy+2UaFhwMs1Cme6LBoQ0SdYIFxY9pJ4lk4VAh5x1iPy73LbgOG40XCwvJI8riu19rGeU/cTPSEPFO4f+90uLSCbSc0jlMmelwKEbo/dBh3E1wd+PNlJAqXe0rWJ3sffmHhQJrCAcpzbBe9s+BxE9pJ4vkPMa6FC4W1q7nx3RcVBXZJixAuzIYTbxZU3Y83uXD9OJEdqTasQRun+T202PEaIGJjzGz9BGNEcWSngfd52iB3VCbGuF7868S4XhihQOuN3DY0fqxwx99Rnn0Psq9TdfotfyP7kmLcpHaSWBYXLiHe1IO3/KB4/HoZPFaqqOxR2U4DQ6c0SOCvQq2KN55wGcLNfC3DLl9RR2qEcImgrcGbe/RfBcLu4Tzv59eP8vQeI1zCGUP4O7B/1ov8qzD/5yCxnSSSSOH+O9HikUiWxfKFO6bjji4b5Vm8K5Esn+ULl1+o1p++w+XsMiKRLJcHChUkkodFCleykvjCBf4CrNnZJBej90MAAAAASUVORK5CYII=" InformativeScreenshot="c799f76a302a4dd4c282fa2d1255ec99.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Generación de Correos - Google Drive' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <uix:NClick sap2010:Annotation.AnnotationText="" ClickType="Single" DisplayName="Click boton descargar" sap:VirtualizedContainerService.HintSize="200,82" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f6006294-c02d-41f2-82b4-add66e3d6a9c" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://drive.google.com/drive/u/0/folders/1shJ6qV-pjCpCZVN3UyIhxG2wc43VTxtk" DesignTimeRectangle="884, 635, 232, 32" ElementType="Text" FriendlyName="'Descargar'" FullSelectorArgument="&lt;webctrl aaname='Descargar' parentid=':5n' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Descargar' parentid=':5n' tag='DIV' type='' class='a-v-T' check:innerText='Descargar' /&gt;" Guid="a9b37cbf-7e66-4d9b-b2d0-937c073d2b15" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOwAAAAkCAYAAACKaNbNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAPYSURBVHhe7Zr5S1RRFMf7wyKijCLJ1BajSFrUTKVo36GIwkySlIIybbNFS2mhvWjfV1uMTNJwSWumzAVzPc33NHeYXHn9Ise+H3gwb867570f5vPOuffOKCGEmIHCEmIICkuIISgsIYagsIQYgsISYggKS4ghKCwhhqCwhBiCwhJiCApLiCEoLCGGCAnb1tYmq9aul9Fjx+sxNmKiLF2+Usrevw9eQQgZbvoIe6q4RM9/NjXJ5StXJXbmLLn/4KF+RwgZXgYU1nHx0mVZlJImjY2Net7T0yNXr9+Q6XGzZcy4CbJi9VppaPiqsc7OTjl0pEAmRUZphUY+FwM1tbVatTEuMipGSs6c1TGg7dcv2Zeb99dYn8+vsY8VFZK0OE32H8iXiEmT5fGTpzru4OGjeo5ciMXNnqsx4DUfIRYYUtgv9fUSvyBB3pWV6fnde/clMTlVqmtqVApIg3EYf+XadVmQmByKZe3OkQ2bNkt7e7vKkpicIoVFp1W2yqoqzXv7zl3Nm5uXL6vXbdAXA67Pys6R9IxM6erqUsEip8bK9h07pbauTjo6OvRFMmtOvD5Xc3OzHCk4pi8CJ5/XfIRYYEhh/d+/y5z4+SqCu+bmrdvB6B+hIeKnykodu2XrtlDV9Pv98uz5CxUGY1KXLJOWlhaNgUePn6jkqNpowZHfgfvFz0+QHz8aVbCFSYv1XqC/Zw1/Tq/5CLGCJ2HdZ7cw5Q5UK0hQVfVZqyYOtMZogSEPQN4dmbtC571pbW0NtLAHtIV1eXEv3BO5k1OX6GcQ/kyO3t95yUeIFTy1xPiBz1uYJK9KS4PRvqC6lr5+I9l79sqU6GmSf+iwtqGDCYs4Wla0sE4iiPevwnrNR4gVPC06tQSqFhaNCo6fCEb/LEJ1Bw5I8ubtW6murglGRJ6/eKmCQ4z+WmJU5A/l5aF7hwv44OGjAQXD/HjN+o1y/sJFPQeIOWG95iPECgMKizlg0eliiYqd8de2DgSOmR6nMnZ3d+scFZXMF5ivogXFqvE3n08r7fGThSp7UyDXYItOWPTB3Hd7ekZIKCxeDSYYngPjEeu96PQv+QixQB9h3XxvoD9OoJqiskVPm6nXQQRUVhC+lQJ50pYuUzEd4ds62BbCPi/yAQgN2RFDzmMnTqqQaMn7EwzSh2/r4GWBnK6qes1HiAVCwlrDteIOiIiVX8hIyEjFrLDnzl+QjMxd2m67PV90COgUCBmpmBU2vP3u719VhIxEzApLyP8IhSXEEBSWEENQWEIMQWEJMQSFJcQQFJYQQ1BYQgxBYQkxBIUlxBAUlhAziPwGvSKcPdu/FtwAAAAASUVORK5CYII=" InformativeScreenshot="85e3e279ba5013d50c042b7d259058a9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Generación de Correos - Google Drive' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:GetLastDownloadedFile IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Esperar descarga de archivo" DownloadFolder="[in_RutaFolderDescargas]" File="[archivoDescargado]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_2">
+              <ui:GetLastDownloadedFile.Body>
+                <ActivityAction>
+                  <Assign DisplayName="Asignar valor a out_RutaArchivo" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_RutaArchivoDescargado]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Environment.CurrentDirectory+"\Data\Input\"+in_NombreArchivo+".xlsx"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </ActivityAction>
+              </ui:GetLastDownloadedFile.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:GetLastDownloadedFile>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="1912, 303, 1376, 744" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="b3a39e88aa56224a368176a62aee854f.png" Selector="&lt;html app='chrome.exe' title='Generación de Correos - Google Drive' /&gt;" Url="[in_URLFolder]" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+    <ui:MoveFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" sap2010:Annotation.AnnotationText="Obtiene el primer dato que encuentre de extension xlsx porque este es  el ultimo  archivo descargado" Destination="[out_RutaArchivoDescargado]" DisplayName="Mover archivo a carpeta input" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="MoveFile_4" Overwrite="True" Path="[in_RutaFolderDescargas +in_NombreArchivo+&quot;.xlsx&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MoveFile>
+    <ui:LogMessage DisplayName="Ubicacion de archivo descargado" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;El archivo fue descargado con exito en:  &quot;+ out_RutaArchivoDescargado]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:LogMessage DisplayName="Finalizando Web_GDrive_Descargar_hoja_de_recursos" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Finalizando Web_GDrive_Descargar_hoja_de_recursos&quot;]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>
